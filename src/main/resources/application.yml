@@ -1,0 +1,29 @@
+server:
+  error:
+    include-stacktrace: never
+
+spring:
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+        default-page-size: 5
+  datasource:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    user: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    baseline-on-migrate: true
+    baseline-description: 'init'
+    baseline-version: 0
+
+system-configuration:
+  public-endpoints: /swagger-ui/**, /v3/api-docs/**, /error
